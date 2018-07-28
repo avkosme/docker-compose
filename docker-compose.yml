@@ -8,7 +8,8 @@ services:
     hostname: hostname.org
     domainname: hostname.org
     privileged: true
-    command: cd /opt/webapp && npm run start
+    command: bash -c "npm run start"
+    working_dir: /opt/webapp
     volumes: 
       - ./src:/opt/webapp
     dns:
