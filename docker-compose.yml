@@ -1,0 +1,29 @@
+version: '3'
+
+services:
+
+  web:
+    image: 'avkosme/nodejs'
+    container_name: web
+    hostname: hostname.org
+    domainname: hostname.org
+    privileged: true
+    command: cd /opt/webapp && npm run start
+    volumes: 
+      - ./src:/opt/webapp
+    dns:
+      - 8.8.8.8
+    ports:
+      - 80:80
+      - 443:443
+    networks:
+      dev:
+        ipv4_address: 10.5.0.2  
+
+
+networks:
+  project:
+    driver: bridge
+    ipam:
+     config:
+       - subnet: 10.5.0.0/16
