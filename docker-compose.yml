@@ -10,6 +10,10 @@ services:
     privileged: true
     command: bash -c "npm run start"
     working_dir: /opt/webapp
+    environment:
+      - NODE_ENV=production
+      - MONGODB_URI=MONGODB_URI=mongodb://<mlab_user>:<mlab_password>@<mlab_connection_url>
+      - SESSION_SECRET=<Put lots of randomness in these>
     volumes: 
       - ./src:/opt/webapp
     dns:
