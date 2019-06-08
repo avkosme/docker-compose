@@ -13,6 +13,8 @@ services:
     build:
         context: .
         dockerfile: Dockerfile
+    env_file:
+      - .env
     environment:
       - NODE_ENV=production
       - MONGODB_URI=MONGODB_URI=mongodb://<mlab_user>:<mlab_password>@<mlab_connection_url>
